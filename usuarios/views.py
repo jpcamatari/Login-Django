@@ -6,6 +6,7 @@ from django.contrib.auth import login as login_django
 from django.contrib.auth.decorators import login_required
 
 
+
 def cadastro(request):
     if request.method == "GET":
         return render(request, 'cadastro.html')
