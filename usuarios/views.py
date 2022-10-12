@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
 
 def cadastro(request):
     if request.method == "GET":
@@ -20,5 +21,17 @@ def cadastro(request):
         return HttpResponse('Usuario Cadastrado com Sucesso!')
 
 def login(request):
-    return render(request, 'login.html')
+    if request.method == "GET":
+        return render(request, 'login.html')
+    else:
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+
+        user = authenticate(username=username, password=senha)
+
+        if user:
+            return HttpResponse("Autenticado!")
+        else:
+            return HttpResponse("Email ou senha Invalidos.")
+
     
