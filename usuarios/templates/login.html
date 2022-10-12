@@ -1,7 +1,10 @@
-<html>
-<title>Login</title>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <h1>Login Usuario</h1>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <style>
         * {
             padding: 0;
@@ -59,9 +62,10 @@
         }
 
     </style>
-    
+    <div style='text-align:center'>
+        <h1>Login Usuario</h1>
+    </div>
 </head>
-
 <body>
     <header>
         <div class="container">
@@ -75,16 +79,22 @@
         
 
     </header>
-    <form action="{% url 'login' %}" method='POST'>{% csrf_token %}
-        <input type="text" placeholder="Username..." name="username">
-        <br><br>
-        <input type="password" placeholder="Senha..." name="senha">
-        <br><br>
-        <input type="submit" value="Entrar">
-        <br>
+    <section>
+        <form action="{% url 'cadastro' %}" method='POST'>{% csrf_token %}
+            <div>
+                <label>Usuario:</label>
+                <input type="text" placeholder="Username..." name="username">
+            </div>
+            <div>
+                <label>Senha:</label>
+                <input type="password" placeholder="Senha..." name="senha">
+            </div>
+            <div>
+                <input type="submit" value="Entrar">
+            </div>
 
-    </form>
+        </form>
+    </section>
+    
 </body>
-
-
 </html>
