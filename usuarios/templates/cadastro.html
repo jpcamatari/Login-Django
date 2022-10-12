@@ -1,22 +1,92 @@
-<html>
-<title>Cadastro</title>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<h1>Cadastrar Usuario</h1>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: cornflowerblue;
+            color: white;
+            font-family: Cambria, Arial; 
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;   
+        }
+
+        form {
+            font-family: Arial;
+        }
+
+        form div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+        }
+
+        form input, form textarea {
+            outline: unset;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid cornflowerblue;
+            border-radius: 20px;
+        }
+
+        form input:focus, form textarea:focus {
+            background-color: wheat;
+        }
+
+        form input[type=submit] {
+            background-color: cornflowerblue;
+            color: white;
+            cursor: pointer;
+
+        }
+        
+        form label {
+            margin-left: 20px;
+        }
+
+    </style>
 </head>
-
 <body>
-    <form action="{% url 'cadastro' %}" method='POST'>{% csrf_token %}
-        <input type="text" placeholder="Username..." name="username">
-        <br><br>
-        <input type="email" placeholder="Email..." name="email">
-        <br><br>
-        <input type="password" placeholder="Senha..." name="senha">
-        <br><br>
-        <input type="submit" value="cadastrar">
-        <br>
+    <header>
+        <h1>Cadastrar Usuario</h1>
+    </header>
+    <section>
+        <form action="{% url 'cadastro' %}" method='POST'>{% csrf_token %}
+            <div>
+                <label>Usuario:</label>
+                <input type="text" placeholder="Username..." name="username">
+            </div>
+            <div>
+                <label>Email:</label>
+                <input type="email" placeholder="Email..." name="email">
+            </div>
+            <div>
+                <label>Senha:</label>
+                <input type="password" placeholder="Senha..." name="senha">
+            </div>
+            <div>
+                <input type="submit" value="cadastrar">
+            </div>
 
-    </form>
+        </form>
+    </section>
+    
 </body>
-
-
 </html>
