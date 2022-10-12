@@ -39,6 +39,6 @@ def login(request):
             return HttpResponse("Email ou senha Invalidos.")
 
 @login_required(login_url='/auth/login/')
-def plataforma(request):
-    return HttpResponse('Plataforma')
+def home(request):
+    return HttpResponse('Você está Logado!')
     
